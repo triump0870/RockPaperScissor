@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Choice View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RockPaperScissor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ChoiceViewController" customModule="RockPaperScissor" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -19,16 +19,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cN-oc-CPI" userLabel="PaperButton">
-                                <state key="normal" image="paper"/>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1z-F2-oUe" userLabel="Scissors">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="h0i-gs-Dn2"/>
+                                    <constraint firstAttribute="height" constant="65" id="zDa-x9-v28"/>
+                                </constraints>
+                                <state key="normal" title="Scissors" image="scissors"/>
                                 <connections>
-                                    <segue destination="N8b-md-DJS" kind="presentation" id="kjG-Qy-7AJ"/>
+                                    <action selector="scissorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YzX-Z8-FD5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1z-F2-oUe" userLabel="ScissorButton">
-                                <state key="normal" image="scissor"/>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VvD-XP-drS" userLabel="Rock">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="GRo-1o-5uY"/>
+                                    <constraint firstAttribute="height" constant="65" id="hyc-qx-dam"/>
+                                </constraints>
+                                <state key="normal" title="Rock" image="rock"/>
                                 <connections>
-                                    <segue destination="N8b-md-DJS" kind="presentation" id="PMe-IU-BbI"/>
+                                    <action selector="rockButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kiH-gg-bms"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Play" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Id-Nr-IVx">
@@ -36,33 +44,37 @@
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="highlightedColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VvD-XP-drS" userLabel="RockButton">
-                                <state key="normal" image="rock"/>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cN-oc-CPI" userLabel="Paper">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="QDm-go-OmA"/>
+                                    <constraint firstAttribute="height" constant="65" id="zx7-pQ-PkD"/>
+                                </constraints>
+                                <state key="normal" title="Paper" image="paper"/>
                                 <connections>
-                                    <segue destination="N8b-md-DJS" kind="presentation" id="X9N-r8-c4n"/>
+                                    <action selector="paperButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9nQ-NE-s0H"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.1769710629" green="0.86272355209999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Y1z-F2-oUe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="280" id="BUn-Td-xBa"/>
-                            <constraint firstItem="1cN-oc-CPI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="138" id="BpY-Wo-s1K"/>
-                            <constraint firstItem="VvD-XP-drS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="26" id="GPp-w1-OyR"/>
-                            <constraint firstItem="Y1z-F2-oUe" firstAttribute="centerX" secondItem="8Id-Nr-IVx" secondAttribute="centerX" id="HPd-e2-RGh"/>
-                            <constraint firstItem="8Id-Nr-IVx" firstAttribute="top" secondItem="Y1z-F2-oUe" secondAttribute="bottom" constant="72" id="Iyg-Q3-zhU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1cN-oc-CPI" secondAttribute="trailing" constant="24" id="OfJ-Nz-dfr"/>
-                            <constraint firstItem="1cN-oc-CPI" firstAttribute="leading" secondItem="VvD-XP-drS" secondAttribute="trailing" constant="88" id="VJT-Cc-6Jx"/>
-                            <constraint firstItem="VvD-XP-drS" firstAttribute="top" secondItem="1cN-oc-CPI" secondAttribute="top" id="hPm-Qu-ttP"/>
-                            <constraint firstItem="VvD-XP-drS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="138" id="li5-Cn-SlK"/>
-                            <constraint firstItem="Y1z-F2-oUe" firstAttribute="top" secondItem="VvD-XP-drS" secondAttribute="bottom" constant="77" id="o3a-13-16N"/>
-                            <constraint firstItem="Y1z-F2-oUe" firstAttribute="top" secondItem="1cN-oc-CPI" secondAttribute="bottom" constant="77" id="qaD-Qw-KPg"/>
-                            <constraint firstItem="Y1z-F2-oUe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wYv-aw-mpb"/>
+                            <constraint firstItem="Y1z-F2-oUe" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0jX-Hp-AOT"/>
+                            <constraint firstItem="Y1z-F2-oUe" firstAttribute="top" secondItem="1cN-oc-CPI" secondAttribute="bottom" constant="24" id="58E-Hd-ktr"/>
+                            <constraint firstItem="8Id-Nr-IVx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GtD-Hv-F8D"/>
+                            <constraint firstItem="VvD-XP-drS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="VIq-Da-hFp"/>
+                            <constraint firstItem="VvD-XP-drS" firstAttribute="top" secondItem="1cN-oc-CPI" secondAttribute="bottom" constant="24" id="WP7-tH-eKk"/>
+                            <constraint firstItem="1cN-oc-CPI" firstAttribute="leading" secondItem="VvD-XP-drS" secondAttribute="trailing" constant="24" id="pjd-p7-Z0S"/>
+                            <constraint firstItem="1cN-oc-CPI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tjD-ts-Rmy"/>
+                            <constraint firstItem="8Id-Nr-IVx" firstAttribute="top" secondItem="VvD-XP-drS" secondAttribute="bottom" constant="24" id="vDe-YG-vGQ"/>
+                            <constraint firstItem="Y1z-F2-oUe" firstAttribute="leading" secondItem="1cN-oc-CPI" secondAttribute="trailing" constant="24" id="yxF-1x-fSP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="N8b-md-DJS" kind="presentation" identifier="play" id="JcE-na-dVA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-391.875" y="15.845070422535212"/>
+            <point key="canvasLocation" x="-343.19999999999999" y="137.18140929535232"/>
         </scene>
         <!--Result View Controller-->
         <scene sceneID="iJy-4l-Gxu">
@@ -76,7 +88,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="d1" translatesAutoresizingMaskIntoConstraints="NO" id="chd-1r-8va" userLabel="ResultImage"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paper-rock" translatesAutoresizingMaskIntoConstraints="NO" id="chd-1r-8va" userLabel="ResultImage"/>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCm-g4-toR" userLabel="ResultText">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -114,12 +126,9 @@
     </scenes>
     <resources>
         <image name="close" width="40" height="40"/>
-        <image name="d1" width="160" height="120"/>
         <image name="paper" width="75" height="65"/>
+        <image name="paper-rock" width="80" height="60"/>
         <image name="rock" width="75" height="65"/>
-        <image name="scissor" width="75" height="65"/>
+        <image name="scissors" width="75" height="65"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="kjG-Qy-7AJ"/>
-    </inferredMetricsTieBreakers>
 </document>

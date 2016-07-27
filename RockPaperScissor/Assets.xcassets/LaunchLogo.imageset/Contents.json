@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "PaperCoversRock.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "LaunchLogo.pdf",
       "scale" : "2x"
     },
     {

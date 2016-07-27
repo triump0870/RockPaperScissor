@@ -1,4 +1,4 @@
-//
+ //
 //  ResultViewController.swift
 //  RockPaperScissor
 //
@@ -8,6 +8,18 @@
 
 import UIKit
 
+enum Shape: String {
+    case Rock = "Rock"
+    case Paper = "Paper"
+    case Scissors = "Scissors"
+    
+    static func randomShape() -> Shape{
+        let shapes = ["Rock", "Paper", "Scissors"]
+        let key = Int(arc4random_uniform(3))
+        return Shape(rawValue: shapes[key])!
+    }
+}
+
 class ResultViewController: UIViewController {
     
     var firstPlayer: Int?
@@ -16,19 +28,12 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var resultImage: UIImageView!
     @IBOutlet weak var resultText: UILabel!
     
-    enum Planet:Int {
-        case mercury=12, venus, earth, mars, jupiter, saturn, uranus, neptune
-    }
-    let ResultTextDict = ["12":"Paper cover Rock, You win!", "13":"Scissor cuts Paper, You lose!", "21":"Paper cover Rock, You lose!", "23":"Rock smashes Scissor, You win!", "31":"Scissor cuts Paper, You win!", "32":"Rock smashes Scissor, You lose!"
-    ]
-    
-    let ResultImageDict = ["12":"d1", "13":"d3", "21":"d1", "23":"d2", "31":"d3", "32":"d2"]
-    
-    let PlayerList = [1:"Paper", 2:"Rock", 3:"Scissor"]
+    var userChoice: Shape! = nil
+    private let opponentChoice: Shape = Shape.randomShape()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        display()
         // Do any additional setup after loading the view.
     }
     
@@ -37,47 +42,45 @@ class ResultViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        if let firstPlayer = self.firstPlayer, secondPlayer = self.secondPlayer {
-            print("Firstplayer and secondplayer are: \(firstPlayer) and \(secondPlayer)")
-////            print("FirstPlayer:\(firstPlayer%3)")
-//            
-            if firstPlayer == secondPlayer{
-                self.resultImage.image = UIImage(named: "tie")
-                self.resultText.text = "That's a human Tie"
-            }
-            else {
-                let key = "\(firstPlayer)"+"\(secondPlayer)"
-                self.resultImage.image = UIImage(named: ResultImageDict[key]!)
-                self.resultText.text = ResultTextDict[key]
-                
-            }
+    func display() {
+        var image: String
+        var text: String
+        
+        let matchUp = "\(userChoice.rawValue) vs \(opponentChoice.rawValue)"
+        
+        switch(userChoice!, opponentChoice){
+        case let (userChoice, opponentChoice) where userChoice == opponentChoice:
+            image = "tie"
+            text = "\(matchUp), It's a tie!"
             
-       
+        case (.Paper, .Rock),(.Rock,.Scissors),(.Scissors,.Paper):
+            image = "\(userChoice.rawValue)-\(opponentChoice.rawValue)"
+            text = "\(matchUp), You win!"
+        default:
+            image = "\(opponentChoice.rawValue)-\(userChoice.rawValue)"
+            text = "\(matchUp), You lose! :("
         }
-        self.resultImage.alpha = 0
-        self.resultText.alpha = 0
-    }
+        
+        image = image.lowercased()
+        self.resultImage.image = UIImage(named: image)
+        self.resultText.text = text
+        
     
-    override func viewDidAppear(_ animated: Bool) {
-        UIView.animate(withDuration: 0.3){
-            self.resultImage.alpha = 1
-            self.resultText.alpha = 1
-        }
-    }
-    
-    @IBAction func dismiss(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+}
+
+
+@IBAction func dismiss(_ sender: AnyObject) {
+    self.dismiss(animated: true, completion: nil)
+}
+
+/*
+ // MARK: - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+ // Get the new view controller using segue.destinationViewController.
+ // Pass the selected object to the new view controller.
+ }
+ */
+
 }
