@@ -14,6 +14,7 @@
 		7DA114841D40268D00610E10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DA114821D40268D00610E10 /* LaunchScreen.storyboard */; };
 		7DA1148F1D40268D00610E10 /* RockPaperScissorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA1148E1D40268D00610E10 /* RockPaperScissorTests.swift */; };
 		7DA1149A1D40268D00610E10 /* RockPaperScissorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA114991D40268D00610E10 /* RockPaperScissorUITests.swift */; };
+		7DA114A81D402AC300610E10 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA114A71D402AC300610E10 /* ResultViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		7DA114951D40268D00610E10 /* RockPaperScissorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RockPaperScissorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DA114991D40268D00610E10 /* RockPaperScissorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockPaperScissorUITests.swift; sourceTree = "<group>"; };
 		7DA1149B1D40268D00610E10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7DA114A71D402AC300610E10 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				7DA114801D40268D00610E10 /* Assets.xcassets */,
 				7DA114821D40268D00610E10 /* LaunchScreen.storyboard */,
 				7DA114851D40268D00610E10 /* Info.plist */,
+				7DA114A71D402AC300610E10 /* ResultViewController.swift */,
 			);
 			path = RockPaperScissor;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			files = (
 				7DA1147C1D40268D00610E10 /* ViewController.swift in Sources */,
 				7DA1147A1D40268D00610E10 /* AppDelegate.swift in Sources */,
+				7DA114A81D402AC300610E10 /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
